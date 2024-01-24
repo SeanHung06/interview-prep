@@ -35,23 +35,21 @@ Template
 Example
 ```javascript
 // Find the maximum sum subarray of size `k`:
-function maxSumSubarray(arr: number[], k: number): number {
-    let start = 0;
-    let currentSum = 0;
-    let maxSum = Number.NEGATIVE_INFINITY;
+def max_sum_subarray(arr, k):
+    start = 0
+    current_sum = 0
+    max_sum = float('-inf')
 
-    for (let end = 0; end < arr.length; end++) {
-        currentSum += arr[end];
+    for end in range(len(arr)):
+        current_sum += arr[end]
 
-        if (end - start + 1 === k) {
-            maxSum = Math.max(maxSum, currentSum);
-            currentSum -= arr[start];
-            start++;
-        }
-    }
+        if end - start + 1 == k:
+            max_sum = max(max_sum, current_sum)
+            current_sum -= arr[start]
+            start += 1
 
-    return maxSum;
-}
+    return max_sum
+
 ```
 
 ### Two pointers
